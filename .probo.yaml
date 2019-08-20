@@ -3,4 +3,4 @@ steps:
   - name: Run Node.js app.
     plugin: Node
     nodeVersion: 12
-    main: app.js
+    mainFile: app.js
