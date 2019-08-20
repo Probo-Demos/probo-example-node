@@ -1,0 +1,28 @@
+{
+  "name": "probo-example-node",
+  "version": "1.0.0",
+  "description": "A Probo example using the Node.js plugin",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Probo-Demos/probo-example-node.git"
+  },
+  "keywords": [
+    "probo",
+    "node",
+    "demo"
+  ],
+  "author": "Valentin Sanchez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Probo-Demos/probo-example-node/issues"
+  },
+  "homepage": "https://github.com/Probo-Demos/probo-example-node#readme"
+}
