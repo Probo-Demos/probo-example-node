@@ -1,7 +1,7 @@
 image: test:v1
 services:
-  pm2:
-    command: 'pm2 start $SRC_DIR/app.js'
+  node:
+    command: 'node $SRC_DIR/app.js'
 steps:
   - name: Run Node.js app.
     plugin: Node
