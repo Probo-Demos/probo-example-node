@@ -1,6 +1,8 @@
-image: proboci/ubuntu-16.04-lamp:php-7.2
+image: proboci/ubuntu:18.04
+services:
+  pm2:
+    command: 'pm2 start $SRC_DIR/app.js'
 steps:
   - name: Run Node.js app.
     plugin: Node
     nodeVersion: 12
-    mainFile: app.js
