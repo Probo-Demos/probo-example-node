@@ -2,8 +2,8 @@ image: test:v1
 services:
   node:
     command: 'node $SRC_DIR/app.js'
+sitePort: 3000
 steps:
   - name: Run Node.js app
     plugin: Node
     nodeVersion: 12
-    mainFile: app.js
