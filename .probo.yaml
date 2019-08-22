@@ -4,6 +4,6 @@ services:
     command: 'node $SRC_DIR/app.js'
 sitePort: 3000
 steps:
-  - name: Run Node.js app
+  - name: Install Node.js app.
     plugin: Node
     nodeVersion: 12
