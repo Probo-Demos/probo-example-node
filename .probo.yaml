@@ -3,7 +3,7 @@ services:
   node:
     command: 'node $SRC_DIR/app.js'
 steps:
-  - name: Run Node.js app.
+  - name: Run Node.js app
     plugin: Node
     nodeVersion: 12
     mainFile: app.js
