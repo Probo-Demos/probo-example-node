@@ -4,7 +4,7 @@
   "description": "A Probo example using the Node.js plugin",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "devDependencies": {},
   "scripts": {
