@@ -1,9 +1,30 @@
-image: test:v1
-services:
-  node:
-    command: 'node $SRC_DIR/app.js'
-sitePort: 3000
+# Standalone Node.js build environment.
+#
+# Uses Probo's built-in NodeJSApp plugin (probo/lib/plugins/TaskRunner/NodeJSApp.js),
+# which installs and starts the app at build time, then keeps it running under
+# pm2. nginx inside the container reverse-proxies *.probo.build to the app on
+# 127.0.0.1:3000 (see probo-ubuntu/nodejs/files/proxy-enable.conf), so app.js
+# listens on port 3000.
+#
+#   type:   nodejs   -> selects the proboci/ubuntu:nodejs<version> image
+#   nodejs: 22       -> Node.js version (22 is the Probo default)
+type: nodejs
+nodejs: 22
+
 steps:
-  - name: Install Node.js app.
-    plugin: Node
-    nodeVersion: 12
+  - name: Setup NodeJS Application
+    plugin: NodeJSApp
+    # Folder (relative to the repo root) holding package.json and app.js.
+    subDirectory: src
+    # Install dependencies (defaults to `npm i`; shown here for clarity).
+    buildCommand: npm install
+    # Start under pm2 so the process is supervised and the build step returns
+    # instead of hanging. `npm run prod` runs `node app.js` (see src/package.json).
+    runCommand: pm2 start npm -- run prod
+    # Variables passed through to the app. An environment block is what makes the
+    # plugin write /src/startup.sh, which the container reuses to (re)start the
+    # app. DEMO_CUSTOM_VAR appears in the page's second table; the standard Probo
+    # build variables populate the first table automatically.
+    environment:
+      NODE_ENV: production
+      DEMO_CUSTOM_VAR: hello-from-probo-yaml

@@ -1,14 +1,17 @@
 {
   "name": "probo-example-node",
-  "version": "1.0.0",
-  "description": "A Probo example using the Node.js plugin",
+  "version": "2.0.0",
+  "description": "A Probo CI example: a standalone Node.js app (NodeJSApp plugin) that displays the build environment variables Probo injects into the container.",
   "main": "app.js",
-  "dependencies": {
-    "express": "^4.17.1"
+  "engines": {
+    "node": ">=18"
   },
-  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.19.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "prod": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,10 @@
   "keywords": [
     "probo",
     "node",
+    "express",
     "demo"
   ],
-  "author": "Valentin Sanchez",
+  "author": "Probo CI",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Probo-Demos/probo-example-node/issues"
